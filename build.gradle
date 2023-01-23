@@ -1,12 +1,13 @@
 buildscript {
 
     ext.versions = [
-            'compileSdk'      : 28,
-            'minSdk'          : 16,
-            'targetSdk'       : 28,
-            'constraintLayout': '1.1.2',
-            'supportLibrary'  : '1.0.0',
-            'kotlin'          : '1.2.51',
+            'compileSdk'      : 33,
+            'minSdk'          : 24,
+            'targetSdk'       : 33,
+            'constraintLayout': '2.1.4',
+            'supportLibrary'  : '1.6.0',
+            'androidxMaterialVersion'  : '1.7.0',
+            'kotlin'          : '1.7.20',
     ]
 
     repositories {
@@ -16,7 +17,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:7.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     }
 }

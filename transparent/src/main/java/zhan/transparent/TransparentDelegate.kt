@@ -7,13 +7,16 @@ import androidx.core.content.ContextCompat
 import java.util.*
 
 
-class TransparentDelegate(private val mRootView: View) : ViewTreeObserver.OnGlobalLayoutListener,
-        ITransparentDelegate {
-    private val mOnTransparentListeners = ArrayList<OnTransparentListener>()
+class TransparentDelegate(
+    private val mRootView: View
+) : ViewTreeObserver.OnGlobalLayoutListener, ITransparentDelegate {
+    private val mOnTransparentListeners = mutableListOf<OnTransparentListener>()
 
     private var offset: Float = 0.toFloat()
-    private val mNormalGroundColor: Int = ContextCompat.getColor(mRootView.context,
-            android.R.color.transparent)
+    private val mNormalGroundColor: Int = ContextCompat.getColor(
+        mRootView.context,
+        android.R.color.transparent
+    )
     private var mBackGroundColor: Int = 0
 
     init {
@@ -27,18 +30,20 @@ class TransparentDelegate(private val mRootView: View) : ViewTreeObserver.OnGlob
     }
 
     fun addOnScrollStateListener(listener: OnTransparentListener?) {
-        if (listener != null) {
-            if (!mOnTransparentListeners.contains(listener)) {
-                mOnTransparentListeners.add(listener)
-            }
+        if (listener == null) {
+            return
+        }
+        if (!mOnTransparentListeners.contains(listener)) {
+            mOnTransparentListeners.add(listener)
         }
     }
 
     fun removeOnScrollStateListener(listener: OnTransparentListener?) {
-        if (listener != null) {
-            if (mOnTransparentListeners.contains(listener)) {
-                mOnTransparentListeners.remove(listener)
-            }
+        if (listener == null) {
+            return
+        }
+        if (mOnTransparentListeners.contains(listener)) {
+            mOnTransparentListeners.remove(listener)
         }
     }
 

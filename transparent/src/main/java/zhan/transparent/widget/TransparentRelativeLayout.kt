@@ -29,26 +29,26 @@ class TransparentRelativeLayout : RelativeLayout, ITransparentDelegate {
     }
 
     override fun updateTop(top: Float) {
-        mTransparentDelegate!!.updateTop(top)
+        mTransparentDelegate?.updateTop(top)
     }
 
     override fun setMaxOffset(offset: Float) {
-        mTransparentDelegate!!.setMaxOffset(offset)
+        mTransparentDelegate?.setMaxOffset(offset)
     }
 
     override fun setColorToBackGround(backGroundColor: Int) {
-        mTransparentDelegate!!.setColorToBackGround(backGroundColor)
+        mTransparentDelegate?.setColorToBackGround(backGroundColor)
     }
 
     fun addOnScrollStateListener(listener: OnTransparentListener) {
-        mTransparentDelegate!!.addOnScrollStateListener(listener)
+        mTransparentDelegate?.addOnScrollStateListener(listener)
     }
 
     fun removeOnScrollStateListener(listener: OnTransparentListener) {
-        mTransparentDelegate!!.removeOnScrollStateListener(listener)
+        mTransparentDelegate?.removeOnScrollStateListener(listener)
     }
 
     fun removeOnScrollStateListenerAll() {
-        mTransparentDelegate!!.removeOnScrollStateListenerAll()
+        mTransparentDelegate?.removeOnScrollStateListenerAll()
     }
 }
